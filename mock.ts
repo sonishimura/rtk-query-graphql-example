@@ -1,5 +1,4 @@
 const { ApolloServer, makeExecutableSchema } = require('apollo-server')
-
 const casual = require('casual')
 const { importSchema } = require('graphql-import')
 
@@ -9,13 +8,17 @@ const typeDefs = importSchema('schema/schema.graphql');
 
 const server = new ApolloServer({
   schema: makeExecutableSchema({
-    typeDefs
+    typeDefs,
+    cors: false
   }),
   mocks: {
-    Todo: () => ({
+    ToDo: () => ({
       id: casual.uuid,
       title: casual.title
-    })
+    }),
+  },
+  fetchOptions: {
+    mode: 'no-cors',
   },
 });
 

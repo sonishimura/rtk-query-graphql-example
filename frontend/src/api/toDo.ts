@@ -1,5 +1,5 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { ToDo } from "./types";
+import { GetToDosQueryVariables, GetToDosQuery } from "./types";
 import { gql } from "graphql-request";
 
 import { graphqlBaseQuery } from "./baseQuery";
@@ -15,9 +15,9 @@ const getToDosDocument = gql`
 
 export const toDoApi = createApi({
   reducerPath: "toDoApi",
-  baseQuery: graphqlBaseQuery({ baseUrl: "localhost:4000" }),
+  baseQuery: graphqlBaseQuery({ baseUrl: "http://localhost:4000" }),
   endpoints: (builder) => ({
-    getToDos: builder.query<ToDo, string>({
+    getToDos: builder.query<GetToDosQuery, GetToDosQueryVariables>({
       query: () => ({
         document: getToDosDocument,
       }),
