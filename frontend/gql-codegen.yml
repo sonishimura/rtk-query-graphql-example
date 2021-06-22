@@ -1,0 +1,11 @@
+# 常に上書き
+overwrite: true
+# スキーマファイルを指定
+schema:
+  - ../schema/*.graphql:
+generates:
+  src/api/types.d.ts:
+    documents: "src/api/document/*.graphql"
+    plugins:
+      - typescript
+      - typescript-operations

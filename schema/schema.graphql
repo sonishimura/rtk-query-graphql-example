@@ -1,14 +1,13 @@
-type Todo {
+type ToDo {
   id: String!
   title: String!
 }
 
 type Mutation {
-  create(id: String!, title: String!): Todo
-  updateTodo(id: String!): Todo
-  deleteTodo(id: String!): Todo
+  createToDo(id: String!, title: String!): ToDo
+  updateToDo(id: String!): ToDo
 }
 
 type Query {
-  todos: [Todo!]!
+  toDos: [ToDo!]!
 }

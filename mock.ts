@@ -3,7 +3,7 @@ const { ApolloServer, makeExecutableSchema } = require('apollo-server')
 const casual = require('casual')
 const { importSchema } = require('graphql-import')
 
-const PORT = 4001;
+const PORT = 4000;
 
 const typeDefs = importSchema('schema/schema.graphql');
 
