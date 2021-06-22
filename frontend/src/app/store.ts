@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import { toDoApi } from "../api/toDo";
+import { toDoApi } from "../services/toDo";
 
 export const store = configureStore({
   reducer: {

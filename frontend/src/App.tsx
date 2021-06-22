@@ -1,10 +1,28 @@
-import { useGetToDosQuery } from "./api/toDo";
+import React from "react";
+import { useCreateToDoMutation, useGetToDosQuery } from "./services/toDo";
 
-function App() {
-  const { data } = useGetToDosQuery({});
-  console.log(data?.toDos);
+const App: React.VFC = () => {
+  const { data } = useGetToDosQuery();
+  const [createToDo] = useCreateToDoMutation();
 
-  return <div className="App"></div>;
-}
+  if (!data?.toDos) return null;
+
+  return (
+    <div className="App" style={{ display: "flex", justifyContent: "center" }}>
+      <button
+        onClick={() => {
+          createToDo({ title: "test" });
+        }}
+      >
+        Create Todo
+      </button>
+      <div>
+        {data.toDos.map((todo) => {
+          return <div key={todo.id}>{todo.title}</div>;
+        })}
+      </div>
+    </div>
+  );
+};
 
 export default App;

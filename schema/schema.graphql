@@ -4,8 +4,7 @@ type ToDo {
 }
 
 type Mutation {
-  createToDo(id: String!, title: String!): ToDo
-  updateToDo(id: String!): ToDo
+  createToDo(title: String!): ToDo
 }
 
 type Query {

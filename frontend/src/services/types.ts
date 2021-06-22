@@ -14,18 +14,11 @@ export type Scalars = {
 export type Mutation = {
   __typename?: 'Mutation';
   createToDo?: Maybe<ToDo>;
-  updateToDo?: Maybe<ToDo>;
 };
 
 
 export type MutationCreateToDoArgs = {
-  id: Scalars['String'];
   title: Scalars['String'];
-};
-
-
-export type MutationUpdateToDoArgs = {
-  id: Scalars['String'];
 };
 
 export type Query = {
@@ -45,6 +38,19 @@ export type GetToDosQueryVariables = Exact<{ [key: string]: never; }>;
 export type GetToDosQuery = (
   { __typename?: 'Query' }
   & { toDos: Array<(
+    { __typename?: 'ToDo' }
+    & Pick<ToDo, 'id' | 'title'>
+  )> }
+);
+
+export type CreateToDoMutationVariables = Exact<{
+  title: Scalars['String'];
+}>;
+
+
+export type CreateToDoMutation = (
+  { __typename?: 'Mutation' }
+  & { createToDo?: Maybe<(
     { __typename?: 'ToDo' }
     & Pick<ToDo, 'id' | 'title'>
   )> }

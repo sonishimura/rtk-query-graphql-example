@@ -4,8 +4,8 @@ overwrite: true
 schema:
   - ../schema/*.graphql:
 generates:
-  src/api/types.ts:
-    documents: "src/api/**.ts"
+  src/services/types.ts:
+    documents: "src/services/**.ts"
     plugins:
       - typescript
       - typescript-operations
